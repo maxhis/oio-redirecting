@@ -1,0 +1,15 @@
+{
+  "name": "oio-redirecting",
+  "version": "1.0.0",
+  "description": "Simple URL redirect service.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "iStar <istar309@gmail.com>",
+  "license": "ISC"
+}
