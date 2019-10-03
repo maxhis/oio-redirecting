@@ -1,6 +1,7 @@
 const app = require('express')();
 const PORT = process.env.PORT || 4000;
 const { urls } = require('./urls');
+const { counter, stat } = require('./counter');
 
 app.get('/status', (req, res) => {
   res.json({
@@ -9,13 +10,12 @@ app.get('/status', (req, res) => {
   })
 });
 
+app.get('/stat', stat);
+
+app.use(counter);
 app.get('*', (req, res) => {
   const path = req.path.split('/')[1];
-  if (urls.hasOwnProperty(path)) {
-    res.redirect(301, urls[path]);
-  } else {
-    res.redirect(301, 'https://oio.dev')
-  }
+  res.redirect(301, urls[path]);
 });
 
 app.listen(PORT, () => console.log(`> Ready on http://localhost:${PORT}`));
