@@ -19,5 +19,7 @@ const stat = async (req, res) => {
   res.json(keys.map((key, index) => ({ [key]: counts[index] })));
 }
 
-exports.counter = counter;
-exports.stat = stat;
+module.exports = {
+  counter,
+  stat
+};
