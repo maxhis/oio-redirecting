@@ -16,7 +16,11 @@ const counter = async (req, res, next) => {
 const stat = async (req, res) => {
   const keys = Object.keys(urls);
   const counts = await redis.mget(keys);
-  res.json(keys.map((key, index) => ({ [key]: counts[index] })));
+  const result = keys.reduce((obj, item, index) => { 
+    obj[item] = counts[index];
+    return obj;
+  }, {});
+  res.json(result);
 }
 
 module.exports = {
