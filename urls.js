@@ -5,4 +5,5 @@ exports.urls = {
   do: 'https://m.do.co/c/fe500f1995ce',
   linode: 'https://www.linode.com/?r=f6ac2079cc8d68090a9d31cf868fa3a2a95e333d',
   vultr: 'https://www.vultr.com/?ref=7466133',
+  lbtc: 'https://localbitcoins.com/?ch=d8ge',
 }
