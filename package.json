@@ -11,6 +11,10 @@
   "scripts": {
     "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxhis/oio-redirecting.git"
+  },
   "author": "iStar <istar309@gmail.com>",
   "license": "ISC"
 }
