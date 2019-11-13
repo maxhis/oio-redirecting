@@ -47,9 +47,15 @@ volumes:
     driver: local
     driver_opts:
       type: none
+      device: /home/ubuntu/oio-redirecting/
+      o: bind
+  dhparam:
+    driver: local
+    driver_opts:
+      type: none
       device: /home/ubuntu/oio-redirecting/dhparam/
       o: bind
-
+      
 networks:
   app-network:
     driver: bridge
