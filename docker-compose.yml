@@ -17,11 +17,13 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - web-root:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
+      - dhparam:/etc/ssl/certs
     depends_on:
       - nodejs
     networks:
@@ -36,7 +38,7 @@ services:
       - web-root:/var/www/html
     depends_on:
       - webserver
-    command: certonly --webroot --webroot-path=/var/www/html --email istar309@gmail.com --agree-tos --no-eff-email --staging -d g.oio.dev
+    command: certonly --webroot --webroot-path=/var/www/html --email istar309@gmail.com --agree-tos --no-eff-email --force-renewal -d g.oio.dev
 
 volumes:
   certbot-etc:
@@ -45,7 +47,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/ubuntu/oio-redirecting/
+      device: /home/ubuntu/oio-redirecting/dhparam/
       o: bind
 
 networks:
