@@ -10,6 +10,8 @@ services:
     restart: unless-stopped
     networks:
       - app-network
+    env_file:
+      - ./node.env
 
   webserver:
     image: nginx:mainline-alpine
@@ -55,7 +57,7 @@ volumes:
       type: none
       device: /home/ubuntu/oio-redirecting/dhparam/
       o: bind
-      
+
 networks:
   app-network:
     driver: bridge
